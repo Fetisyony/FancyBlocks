@@ -12,16 +12,17 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="4"
 
-        android:paddingBottom="100dp"/>
+        android:paddingBottom="90dp"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
+        android:contentDescription="@string/add_item"
 
         android:layout_width="60dp"
         android:layout_height="60dp"
 
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="15dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -33,7 +34,6 @@
 
         android:layout_gravity="bottom|end"
 
-        android:background="@null"
         android:backgroundTint="@color/light_blue"
         />
 

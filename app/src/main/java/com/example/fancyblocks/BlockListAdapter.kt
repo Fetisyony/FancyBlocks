@@ -1,9 +1,11 @@
 package com.example.fancyblocks
 
 import android.content.Context
-import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
@@ -15,6 +17,13 @@ class BlockListAdapter(private val context: Context, private var items: MutableL
         )
     }
 
+    override fun onViewAttachedToWindow(holder: BlockListViewHolder) {
+        super.onViewAttachedToWindow(holder)
+
+        val animation = AnimationUtils.loadAnimation(holder.itemView.context, R.anim.appear)
+        holder.itemView.startAnimation(animation)
+    }
+
     override fun getItemCount(): Int {
         return items.size
     }
@@ -22,16 +31,13 @@ class BlockListAdapter(private val context: Context, private var items: MutableL
     override fun onBindViewHolder(holder: BlockListViewHolder, position: Int) {
         holder.bind(items[position])
 
+        val cardView = holder.itemView.findViewById<MaterialCardView>(R.id.card)
         if (position % 2 == 0)
-            holder.itemView.findViewById<MaterialCardView>(R.id.card).setCardBackgroundColor(ContextCompat.getColor(context, R.color.blue))
+            cardView.setCardBackgroundColor(ContextCompat.getColor(context, R.color.blue))
         else
-            holder.itemView.findViewById<MaterialCardView>(R.id.card).setCardBackgroundColor(ContextCompat.getColor(context, R.color.red))
+            cardView.setCardBackgroundColor(ContextCompat.getColor(context, R.color.red))
     }
 
-    fun setItems(list: MutableList<Int>) {
-        items = list
-        notifyItemRangeChanged(0, list.size)
-    }
     fun addItem(list: Int) {
         items.add(list)
         notifyItemInserted(items.size - 1)
