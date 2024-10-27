@@ -42,5 +42,6 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
-    <string name="additem">AddItem</string>
+    <string name="add_item">AddItem</string>
+    <string name="background_of_card">BackgroundOfCard</string>
 </resources>

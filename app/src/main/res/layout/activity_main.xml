@@ -1,19 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rv"/>
+
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="3"
+
+        android:paddingBottom="100dp"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="56dp"
-        android:layout_height="56dp"
         android:id="@+id/fab"
+
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@drawable/ic_add"
+
+        app:fabCustomSize="60dp"
+        app:fabSize="normal"
+        app:maxImageSize="40dp"
+
         android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:contentDescription="@string/additem" />
+
+        android:background="@null"
+        android:backgroundTint="@color/light_blue"
+        />
+
 </FrameLayout>
