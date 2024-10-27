@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             val newNumber = (numbers.size + 1)
 
             adapter.addItem(newNumber)
-            recyclerView.smoothScrollToPosition(numbers.size - 1);
+            recyclerView.scrollToPosition(numbers.size - 1);
         }
     }
 
