@@ -4,9 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.card.MaterialCardView
 
 class BlockListAdapter(private val context: Context, private var items: MutableList<Int>) : RecyclerView.Adapter<BlockListViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BlockListViewHolder {
@@ -22,18 +20,10 @@ class BlockListAdapter(private val context: Context, private var items: MutableL
         holder.itemView.startAnimation(animation)
     }
 
-    override fun getItemCount(): Int {
-        return items.size
-    }
+    override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: BlockListViewHolder, position: Int) {
-        holder.bind(items[position])
-
-        val cardView = holder.itemView.findViewById<MaterialCardView>(R.id.card)
-        if (position % 2 == 0)
-            cardView.setCardBackgroundColor(ContextCompat.getColor(context, R.color.blue))
-        else
-            cardView.setCardBackgroundColor(ContextCompat.getColor(context, R.color.red))
+        holder.bind(items[position], context)
     }
 
     fun addItem(list: Int) {
